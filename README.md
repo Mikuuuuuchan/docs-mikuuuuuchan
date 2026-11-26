@@ -87,6 +87,15 @@ w05_3d_game/
 - **AI assistance** — scope recorded in `w05_3d_game/AI_ASSISTANCE.md`. Documentation and
   deployment for Week 07 were prepared with DeepSeek Harness at the team's request.
 
+## CI/CD Exploration
+
+This repository uses GitHub Actions and GitHub Pages to automate testing and static deployment:
+
+- **Continuous Integration (CI):** On every push and pull request targeting `main`, an automated workflow runs the `node:test` unit test suite (`node --test tests/*.test.mjs`) to verify core game logic and prevent regressions before merging.
+- **Continuous Deployment (CD):** Once changes are merged into `main`, the static build files (`index.html` and `w05_3d_game/`) are automatically deployed to GitHub Pages, updating the live playable version at <https://luze-111.github.io/pac-man/> with zero manual upload steps.
+- **Zero-Build Static Pipeline:** Because all dependencies (such as Three.js r180) and assets are vendored locally in the repository, the deployment pipeline requires no bundler or compilation step, keeping build times fast and predictable.
+
+
 ## Contributors
 
 Everyone confirms their own row. Publishing does not make one person the sole author.
@@ -96,7 +105,7 @@ Everyone confirms their own row. Publishing does not make one person the sole au
 | 卢泽 (Lu Ze) | [@luze-111](https://github.com/luze-111) | Publisher: repository, README, GitHub Pages deployment |
 | — | [@MaybeItsAI](https://github.com/MaybeItsAI) | Documentation — to confirm in own PR |
 | — | [@Fhy11401](https://github.com/Fhy11401) | Documentation — to confirm in own PR |
-| — | [@Mikuuuuuchan](https://github.com/Mikuuuuuchan) | Documentation — to confirm in own PR |
+| — | [@Mikuuuuuchan](https://github.com/Mikuuuuuchan) | Prototyping, map design, and playtesting |
 
 **How to update this table:** each member edits only their own row, in their own branch and
 pull request, replacing the placeholder with their registered name and a one-line summary of
