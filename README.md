@@ -89,12 +89,8 @@ w05_3d_game/
 
 ## CI/CD Exploration
 
-This repository uses GitHub Actions and GitHub Pages to automate testing and static deployment:
-
-- **Continuous Integration (CI):** On every push and pull request targeting `main`, an automated workflow runs the `node:test` unit test suite (`node --test tests/*.test.mjs`) to verify core game logic and prevent regressions before merging.
-- **Continuous Deployment (CD):** Once changes are merged into `main`, the static build files (`index.html` and `w05_3d_game/`) are automatically deployed to GitHub Pages, updating the live playable version at <https://luze-111.github.io/pac-man/> with zero manual upload steps.
-- **Zero-Build Static Pipeline:** Because all dependencies (such as Three.js r180) and assets are vendored locally in the repository, the deployment pipeline requires no bundler or compilation step, keeping build times fast and predictable.
-
+- **Current pipeline:** The repository only runs GitHub's built-in `pages build and deployment` workflow (e.g., run `45335217058` on commit `6b93a0b`), which triggers on pushes to `main` (not on pull requests) and executes `checkout -> Jekyll build -> upload artifact -> deploy` with no test step.
+- **Useful missing check:** **The tests never run automatically**—currently, `node --test tests/*.test.mjs` has to be executed manually before merging or deploying.
 
 ## Contributors
 
